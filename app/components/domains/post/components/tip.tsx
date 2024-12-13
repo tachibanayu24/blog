@@ -18,8 +18,6 @@ export const Tip = ({ children, info, warn, error, success }: Props) => {
     error: "❌",
   };
 
-  console.log(variant);
-
   const reset = "not-prose text-slate-800 dark:text-slate-100";
 
   return (
