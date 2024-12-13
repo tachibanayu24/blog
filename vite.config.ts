@@ -3,6 +3,16 @@ import autoprefixer from "autoprefixer";
 import tailwindcss from "tailwindcss";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
+import mdx from "@mdx-js/rollup";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import rehypeStarryNight from "rehype-starry-night";
+
+const mdxOptions = {
+  remarkPlugins: [remarkMath],
+  rehypePlugins: [rehypeKatex, rehypeStarryNight],
+  providerImportSource: "@mdx-js/react",
+};
 
 export default defineConfig({
   css: {
@@ -10,5 +20,9 @@ export default defineConfig({
       plugins: [tailwindcss, autoprefixer],
     },
   },
-  plugins: [reactRouter(), tsconfigPaths()],
+  plugins: [
+    reactRouter(),
+    tsconfigPaths(),
+    { enforce: "pre", ...mdx(mdxOptions) },
+  ],
 });
