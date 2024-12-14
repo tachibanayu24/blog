@@ -25,7 +25,7 @@ const components = {
 
 export const Post = ({ title, publishedAt, children, src, emoji }: Props) => {
   return (
-    <article>
+    <article className="w-full">
       <h1>{title}</h1>
       <p>{publishedAt.toDateString()}</p>
       <MDXProvider components={components}>{children}</MDXProvider>

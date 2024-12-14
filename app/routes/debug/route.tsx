@@ -11,14 +11,12 @@ export function meta({}: Route.MetaArgs) {
 
 export default function View() {
   return (
-    <div>
-      <Post
-        title="これはデバッグ用のページです"
-        emoji="🐝"
-        publishedAt={new Date()}
-      >
-        <SampleMDX />
-      </Post>
-    </div>
+    <Post
+      title="これはデバッグ用のページです"
+      emoji="🐝"
+      publishedAt={new Date()}
+    >
+      <SampleMDX />
+    </Post>
   );
 }

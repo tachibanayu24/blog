@@ -1,13 +1,18 @@
 import type { ReactNode } from "react";
 
 import { Links, Meta, Scripts, ScrollRestoration } from "react-router";
-import { Header } from "~/components/domains";
+import { Header, Sidebar } from "~/components/domains";
+import { useRootLoaderData } from "~/hooks/use-root-loader-data";
 
 type Props = {
   children: ReactNode;
 };
 
 export const DefaultLayout = ({ children }: Props) => {
+  const { isSp } = useRootLoaderData();
+
+  const width = isSp ? "w-full" : "w-[calc(100vw_-_16rem)]";
+
   return (
     <html lang="ja">
       <head>
@@ -18,9 +23,12 @@ export const DefaultLayout = ({ children }: Props) => {
       </head>
       <body>
         <Header />
-        <main className="mt-[44px] px-12 py-8 prose prose-invert">
-          {children}
-        </main>
+        <div className="flex mt-header-hight">
+          <Sidebar />
+          <main className={`${width} px-12 py-8 prose prose-invert`}>
+            {children}
+          </main>
+        </div>
         <ScrollRestoration />
         <Scripts />
       </body>
