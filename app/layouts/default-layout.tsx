@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 import { Links, Meta, Scripts, ScrollRestoration } from "react-router";
 import { Header, Sidebar } from "~/components/domains";
-import { useRootLoaderData } from "~/hooks/use-root-loader-data";
+import { useRootLoaderData } from "~/hooks";
 
 type Props = {
   children: ReactNode;

@@ -1,4 +1,4 @@
-import { useRootLoaderData } from "~/hooks/use-root-loader-data";
+import { useRootLoaderData } from "~/hooks";
 
 export const Sidebar = () => {
   const { isSp } = useRootLoaderData();
